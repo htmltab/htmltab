@@ -123,14 +123,19 @@ htmltab <- function(doc,
 #     on.exit(print(table.Node))
 #   }
 
+  #cat("This is header", header)
+
   # Deparse
+  #header <- header
+  #cat("This is header1", header)
   header <- deparse(substitute(header), width.cutoff = 500L)
-  body <- deparse(substitute(body), width.cutoff = 500L)
+  #cat("This is header2", header)
+  body <- deparse(substitute(NULL), width.cutoff = 500L)
   ev_header <- eval_header(arg = header)
   ev_body <- eval_body(arg = body)
 
   # Check Inputs & Clean Up & Normalize tr --------
-  table.Node <- check_type(doc = doc, which = which, ...)
+  table.Node <- check_type(doc = doc, which = which)
   table.Node <- rm_nuisance(table.Node = table.Node,
                             rm_superscript = rm_superscript,
                             rm_footnotes = rm_footnotes,

@@ -101,6 +101,8 @@ select_tab.character <- function(which, Node){
 #' @return evaluated header info
 eval_header <- function(arg){
 
+  #cat("This is header3", arg)
+
   # Parse header string
   header <- rm_str_white(strsplit(arg, "\\+")[[1]])
 
