@@ -8,10 +8,12 @@
 #' @return a table node
 check_type <- function(doc, which, ...) UseMethod("check_type")
 
+#' @export
 check_type.default <- function(doc, which, ...){
   stop("doc is of unknown type", call. = FALSE)
 }
 
+#' @export
 check_type.XMLNodeSet <- function(doc, which, ...){
 
   Node <- eval.parent(substitute(XML::xmlParse(XML::saveXML(doc[[1]]), list(...))))
@@ -19,6 +21,7 @@ check_type.XMLNodeSet <- function(doc, which, ...){
   return(Node)
 }
 
+#' @export
 check_type.HTMLInternalDocument <- function(doc, which, ...) {
   Node <- doc
   Node <- select_tab(which = which, Node = Node)
@@ -26,6 +29,7 @@ check_type.HTMLInternalDocument <- function(doc, which, ...) {
   return(Node)
 }
 
+#' @export
 check_type.XMLInternalElementNode <- function(doc, which, ...) {
   Node <- doc
   Node <- select_tab(which = which, Node = Node)
@@ -33,6 +37,7 @@ check_type.XMLInternalElementNode <- function(doc, which, ...) {
   return(Node)
 }
 
+#' @export
 check_type.character <- function(doc, which, ...){
 
   isurl <- is_url(doc)
