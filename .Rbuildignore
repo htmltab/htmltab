@@ -6,3 +6,5 @@ misc/
 CHANGES
 tests/testthat/test_doc_examples.R
 tests/testthat/.test_warnings.R
+^doc$
+^Meta$
