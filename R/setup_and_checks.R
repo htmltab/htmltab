@@ -61,7 +61,6 @@ check_type.character <- function(doc, which, ...){
 #' @param Node the table node
 #' @param which a vector of length one for identification of the table in the document. Either
 #'    a numeric vector for the tables' rank or a character vector that describes an XPath for the table
-#' @param ... additional arguments passed to htmlParse
 #' @return a table node
 select_tab <- function(which, Node) UseMethod("select_tab")
 
