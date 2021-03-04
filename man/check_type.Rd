@@ -21,4 +21,3 @@ a table node
 \description{
 Produce the table node
 }
-

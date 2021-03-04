@@ -17,4 +17,3 @@ a character vector of XPath statements
 \description{
 Return body xpath
 }
-

@@ -21,4 +21,3 @@ the modified R data frame
 \description{
 Reshape in table header information into wide format
 }
-

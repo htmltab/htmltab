@@ -25,10 +25,5 @@ Suggests:
 URL: https://github.com/crubba/htmltab
 BugReports: https://github.com/crubba/htmltab/issues
 VignetteBuilder: knitr
-RoxygenNote: 5.0.1
-NeedsCompilation: no
-Packaged: 2020-03-22 09:26:01 UTC; hornik
-Author: Christian Rubba [aut, cre]
-Maintainer: Christian Rubba <christian.rubba@gmail.com>
-Repository: CRAN
-Date/Publication: 2020-03-22 09:46:14 UTC
+RoxygenNote: 7.1.1
+Encoding: UTF-8

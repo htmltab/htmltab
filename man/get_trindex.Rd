@@ -14,4 +14,3 @@ get_trindex(xpath, table.Node)
 \description{
 Return trindex given an XPath
 }
-

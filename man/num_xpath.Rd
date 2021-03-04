@@ -12,4 +12,3 @@ num_xpath(data)
 \description{
 Generate numeric XPath expression
 }
-
