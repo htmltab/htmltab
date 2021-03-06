@@ -4,7 +4,7 @@
 #'   (by XML's parsing functions)
 #' @param which a vector of length one for identification of the table in the document. Either
 #'    a numeric vector for the tables' rank or a character vector that describes an XPath for the table
-#' @param ... additional arguments passed to htmlParse
+#' @param ... additional arguments passed to `htmlParse()`
 #' @return a table node
 check_type <- function(doc, which, ...) UseMethod("check_type")
 

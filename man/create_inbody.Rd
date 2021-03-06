@@ -13,7 +13,7 @@ create_inbody(tab, table.Node, trindex, xpath)
 
 \item{trindex}{the tr index of the inbody rows}
 
-\item{xpath}{the xpath for the inbody rows}
+\item{xpath}{the XPath for the inbody rows}
 }
 \value{
 the modified R data frame

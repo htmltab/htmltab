@@ -36,7 +36,7 @@ numeric vector for the tables' rank or a character vector that describes an XPat
 
 \item{headerFun}{a function that is executed over the header cell nodes}
 
-\item{headerSep}{a character vector that is used as a seperator in the construction of the table's
+\item{headerSep}{a character vector that is used as a separator in the construction of the table's
 variable names (default ' >> ')}
 
 \item{body}{a vector that specifies which table rows should be used as body information. A numeric
@@ -64,7 +64,7 @@ and body cells (default ' ')}
 \item{rm_nodata_rows}{logical, should rows that have no alphanumeric data be removed (default TRUE)?}
 
 \item{rm_invisible}{logical, should nodes that are not visible be removed (default TRUE)? This
-includes elements with class 'sortkey' and 'display:none' style.}
+includes elements with class `sortkey` and `display:none` style.}
 
 \item{rm_whitespace}{logical, should leading/trailing whitespace be removed from cell values (default TRUE)?}
 
@@ -83,7 +83,7 @@ Robust and flexible methods for extracting structured information out of HTML ta
 The header formula has the following format: level1 + level2 + level3 + ... .
 level1 specifies the main header dimension (column names). This information must
 be for rows. level2 and deeper signify header dimensions that appear throughout the body.
-Those information muste be for cell elements, not rows. Header information may be
+That  information must be for cell elements, not rows. Header information may be
 one of the following types:
 
 \itemize{

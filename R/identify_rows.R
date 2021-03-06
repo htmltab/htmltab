@@ -1,6 +1,5 @@
 #' Generate numeric XPath expression
 #'
-#' @title num_xpath: Generate numeric XPath expression
 #' @param data the header XPath
 #' @export
 num_xpath <- function(data) UseMethod("num_xpath")
@@ -35,7 +34,7 @@ num_xpath.list <- function(data){
 }
 
 
-#' Return trindex given an XPath
+#' Return table row index given an XPath
 #' @param table.Node the table node
 #' @param xpath XPath
 get_trindex <- function(xpath, table.Node) UseMethod("get_trindex")
@@ -68,7 +67,7 @@ get_trindex.list <- function(xpath, table.Node){
   return(tr.index)
 }
 
-#' Return header xpath
+#' Return header XPath
 #'
 #' @param table.Node the table node
 #' @param header an information for the header rows
@@ -123,7 +122,7 @@ get_head_xpath.NULL <- function(header, table.Node){
 }
 
 
-#' Return body xpath
+#' Return body XPath
 #'
 #' @param table.Node the table node
 #' @param body an information for the body rows
