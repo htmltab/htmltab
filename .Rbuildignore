@@ -9,3 +9,4 @@ tests/testthat/.test_warnings.R
 ^Meta$
 ^\.github$
 ^README\.Rmd$
+^revdep$
