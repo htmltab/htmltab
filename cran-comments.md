@@ -1,50 +1,57 @@
-# Resubmission
-This is a resubmission. In this version I have:
-
-* Converted the DESCRIPTION title to title case
-* Included call to person() in Authors@R field
-* Confirmed that the package was checked with R-devel through win-builder
-
 ## Test environments
-* local OS X install, R 3.1.2
-* local Ubuntu 12.04, R 3.1.2
-* win-builder (devel and release)
+* local Windows 10, R 4.0.3
+* github action "check-standard" (win release, macos release, ubuntu release+devel)
+* rhub::check_for_cran(env_vars=c(`_R_CHECK_FORCE_SUGGESTS_` = "true",
+                                  `_R_CHECK_CRAN_INCOMING_USE_ASPELL_` = "true", 
+                                  R_COMPILE_AND_INSTALL_PACKAGES = "always"))
+* win devel
 
 ## R CMD check results
-Local R CMD CHECKs succeeded with no ERRORs, WARNINGs or NOTEs. 
+There were no ERRORs or WARNINGs.
 
-I experienced two NOTEs, when using devtools::check(args="--as-cran"), but not when I checked the package as usual:
+There was 1 NOTE:
 
 * checking CRAN incoming feasibility ... NOTE
-  Maintainer: ‘Christian Rubba <christian.rubba@gmail.com>’
+  Maintainer: ‘Gerhard Burger <burger.ga@gmail.com>’
+  
   New submission
-  Components with restrictions and base license permitting such:
-  MIT + file LICENSE
-  File 'LICENSE':
-  YEAR: 2014,2015
-  COPYRIGHT HOLDER: Christian Rubba
   
-* checking package dependencies ... NOTE
-  No repository set, so cyclic dependency check skipped
+  Package was archived on CRAN
   
-I experienced two NOTEs on R CMD CHECK on win-builder:
-
-On release I got:
-
-*Components with restrictions and base license permitting such:
-  MIT + file LICENSE 
-  File 'LICENSE':
-  YEAR: 2014,2015
-  COPYRIGHT HOLDER: Christian Rubba
   Possibly mis-spelled words in DESCRIPTION:
-  htmltab (6:14)
-  preprocesses (11:48)
+    preprocesses (22:58)
   
-Additionally, only on R-devel I got:
+  CRAN repository db overrides:
+    X-CRAN-Comment: Archived on 2021-01-21 as check problems were not
+      corrected in time.
 
-* checking R code for possible problems ... NOTE
-  htmltab: possible error in check_type(doc = doc, which = which, ...):
-  ... used in a situation where it does not exist
+This is a submission from a new maintainer; I fixed the issues, because I'd like this package to stay on CRAN. I contacted the previous maintainer, Christian Rubba, and he is ok with this.
+
+Additionally, *only* on win devel (with `devtools::check_win_devel`) I get the following error
+
+  Running the tests in 'tests/testthat.R' failed.
+  Complete output:
+    > library(testthat)
+    > test_check("htmltab")
+    Loading required package: htmltab
+    == Failed tests ================================================================
+    -- Error (test_inputs.R:18:3): check_type produces class output ----------------
+    Error: cannot open the connection to 'https://en.wikipedia.org/w/index.php?title=2014_Indian_general_election&oldid=1007662542'
+    Backtrace:
+        x
+     1. +-base::suppressWarnings(XML::htmlParse(readLines(con))) test_inputs.R:18:2
+     2. | \-base::withCallingHandlers(...)
+     3. +-XML::htmlParse(readLines(con))
+     4. \-base::readLines(con)
+    
+    [ FAIL 1 | WARN 15 | SKIP 0 | PASS 119 ]
+    Error: Test failures
+    In addition: Warning message:
+    In for (i in seq_len(n)) { :
+      closing unused connection 4 (https://en.wikipedia.org/w/index.php?title=2014_Indian_general_election&oldid=1007662542)
+    Execution halted
+    
+I'm not sure how to solve this, all the other systems have no problem with it.. Should I disable this for CRAN?
 
 ## Downstream dependencies
-There are currently no downstream dependencies of this package
+Could not use revdep_check because htmltab was previously removed from CRAN
