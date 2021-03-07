@@ -10,3 +10,4 @@ tests/testthat/.test_warnings.R
 ^\.github$
 ^README\.Rmd$
 ^revdep$
+^LICENSE\.md$
