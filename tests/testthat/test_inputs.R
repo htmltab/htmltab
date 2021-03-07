@@ -7,6 +7,8 @@ test_that("Prompts errors correctly", {
 test_that("check_type produces class output", {
 
   skip_if_offline(host = "wikipedia.org")
+  skip_on_cran()
+  
   url <- "https://en.wikipedia.org/w/index.php?title=2014_Indian_general_election&oldid=1007662542"
   
   x <- check_type(doc = url, which = "//table[5]")
@@ -14,7 +16,7 @@ test_that("check_type produces class output", {
 
   #expect_error(check_type(doc = url, which = 1))
 
-  con <- url(url, method = "libcurl")
+  con <- url(url)
   parsed <- suppressWarnings(XML::htmlParse(readLines(con)))
   z <- check_type(doc = parsed, which = 3)
   expect_that(z, is_a("XMLInternalDocument"))
