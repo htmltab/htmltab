@@ -20,8 +20,6 @@ knitr::opts_chunk$set(
 [![Project Status: Unsupported – The project has reached a stable, usable state but the author(s) have ceased all work on it. A new maintainer may be desired.](https://www.repostatus.org/badges/latest/unsupported.svg)](https://www.repostatus.org/#unsupported)
 <!-- badges: end -->
 
-
-
 HTML tables are a valuable data source but extracting and recasting
 these data into a useful format can be tedious. htmltab is a package for
 extracting structured information from HTML tables. It is similar to
@@ -51,4 +49,4 @@ remotes::install_github("htmltab/htmltab")
 ```
 ## Usage
 
-To see *htmltab* in action, take a look at the case studies in this [blog post](http://r-datacollection.com/blog/htmltab-Next-version-and-CRAN-release/), the package vignette, or the package manual.
+To see *htmltab* in action, take a look at the case studies in this [blog post](http://www.r-datacollection.com/blog/htmltab-Next-version-and-CRAN-release/), the package vignette, or the package manual.

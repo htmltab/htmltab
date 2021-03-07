@@ -45,5 +45,5 @@ remotes::install_github("htmltab/htmltab")
 
 To see *htmltab* in action, take a look at the case studies in this
 [blog
-post](http://r-datacollection.com/blog/htmltab-Next-version-and-CRAN-release/),
+post](http://www.r-datacollection.com/blog/htmltab-Next-version-and-CRAN-release/),
 the package vignette, or the package manual.
