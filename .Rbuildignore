@@ -11,3 +11,4 @@ tests/testthat/.test_warnings.R
 ^README\.Rmd$
 ^revdep$
 ^LICENSE\.md$
+^CRAN-RELEASE$
