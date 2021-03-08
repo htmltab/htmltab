@@ -51,8 +51,6 @@
 #' }
 #'
 #'
-#' @author Christian Rubba <\url{http://www.christianrubba.com}>
-#' @references \url{https://github.com/crubba/htmltab}
 #' @examples
 #' \dontrun{
 #'# When no spans are present, htmltab produces output close to XML's readHTMLTable(),

@@ -141,9 +141,3 @@ header = 1:2)
 htmltab(url, which = "//table[@id='team_gamelogs']", header = . + "//td[./strong]")
 }
 }
-\references{
-\url{https://github.com/crubba/htmltab}
-}
-\author{
-Christian Rubba <\url{http://www.christianrubba.com}>
-}
