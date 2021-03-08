@@ -1,3 +1,5 @@
+Resubmission with removal of outdated references as requeested by CRAN maintainers.
+
 ## Test environments
 * local Windows 10, R 4.0.3
 * github action "check-standard" (win release, macos release, ubuntu release+devel)
