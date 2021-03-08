@@ -1,3 +1,9 @@
+# htmltab 0.8.1
+
+## Minor changes
+
+* Remove outdated references
+
 # htmltab 0.8.0
 
 ## New features
