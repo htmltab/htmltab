@@ -25,7 +25,6 @@ Description: HTML tables are a valuable data source but extracting and recasting
 Depends: R (>= 3.0.0)
 Imports: XML (>= 3.98.1.3), httr (>= 1.0.0)
 License: MIT + file LICENSE
-LazyData: true
 Suggests: 
     testthat,
     knitr,
