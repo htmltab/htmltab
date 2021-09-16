@@ -1,6 +1,6 @@
 Package: htmltab
 Title: Assemble Data Frames from HTML Tables
-Version: 0.8.2
+Version: 0.8.2.9000
 Authors@R: 
   c(person("Christian", "Rubba", 
            email = "christian.rubba@gmail.com",
