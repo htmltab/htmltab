@@ -604,5 +604,5 @@ test_that("Example 4 works", {
 
   expect_that(ex4[1,1], equals("July 2013"))
   expect_that(ex4[1,2], equals("20.27"))
-  expect_that(is.na(ex4[11,5]), is_true())
+  expect_true(is.na(ex4[11,5]))
 })

@@ -1,3 +1,12 @@
+# htmltab (development version)
+
+# htmltab 0.8.3
+
+## Minor changes
+
+* Update tests to prevent warnings 
+* Use is.function instead of comparing class to string
+
 # htmltab 0.8.2
 
 ## Minor changes

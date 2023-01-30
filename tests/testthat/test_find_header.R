@@ -62,7 +62,7 @@ test_that("Correctly identified header 2", {
   expect_that(tab2[,1], equals("1"))
   expect_that(tab2[,2], equals("2"))
   expect_that(tab2[,3], equals("3"))
-    expect_that(is.na(tab2[,4]), is_true())
+  expect_true(is.na(tab2[,4]))
 
   expect_that(colnames(tab2)[1], equals("a"))
   expect_that(colnames(tab2)[2], equals("b"))
@@ -95,17 +95,20 @@ tab3_code <- '<table>
 test_that("Correctly identified header 3", {
 
   tab3 <- XML::htmlParse(tab3_code)
-  suppressMessages(tab3 <- htmltab(tab3, fillNA = ""))
+  expect_warning(
+    suppressMessages(tab3 <- htmltab(tab3, fillNA = "")),
+    "Header dimension doesn't match body dimension"
+  )
 
-  expect_that(tab3[,1], equals("1"))
-  expect_that(tab3[,2], equals("2"))
-  expect_that(tab3[,3], equals("3"))
-  expect_that(tab3[,4], equals(""))
-
-  expect_that(colnames(tab3)[1], equals("a >> e"))
-  expect_that(colnames(tab3)[2], equals("b >> e"))
-  expect_that(colnames(tab3)[3], equals("c >> e"))
-  expect_that(colnames(tab3)[4], equals("d >> e"))
+  expect_equal(tab3[,1], "1")
+  expect_equal(tab3[,2], "2")
+  expect_equal(tab3[,3], "3")
+  expect_equal(tab3[,4], "")
+  
+  expect_equal(colnames(tab3)[1], "a >> e")
+  expect_equal(colnames(tab3)[2], "b >> e")
+  expect_equal(colnames(tab3)[3], "c >> e")
+  expect_equal(colnames(tab3)[4], "d >> e")
 })
 
 

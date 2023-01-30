@@ -18,6 +18,7 @@ test_that("check_type produces class output", {
 
   con <- url(url)
   parsed <- suppressWarnings(XML::htmlParse(readLines(con)))
+  close(con)
   z <- check_type(doc = parsed, which = 3)
   expect_that(z, is_a("XMLInternalDocument"))
 })

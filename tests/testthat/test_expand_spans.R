@@ -87,17 +87,19 @@ tab3_code <- '<table>
 test_that("Correctly expanded", {
 
   tab3 <- XML::htmlParse(tab3_code)
-  suppressMessages(tab3 <- htmltab(tab3, header = 1:2, body = 3))
+  expect_warning(
+    suppressMessages(tab3 <- htmltab(tab3, header = 1:2, body = 3)),
+    "Header dimension doesn't match body dimension")
 
-  expect_that(tab3[,1], equals("1"))
-  expect_that(tab3[,2], equals("2"))
-  expect_that(tab3[,3], equals("3"))
-  expect_that(is.na(tab3[,4]), is_true())
+  expect_equal(tab3[,1], "1")
+  expect_equal(tab3[,2], "2")
+  expect_equal(tab3[,3], "3")
+  expect_true(is.na(tab3[,4]))
 
-  expect_that(colnames(tab3)[1], equals("a >> e"))
-  expect_that(colnames(tab3)[2], equals("b >> e"))
-  expect_that(colnames(tab3)[3], equals("c >> e"))
-  expect_that(colnames(tab3)[4], equals("d >> e"))
+  expect_equal(colnames(tab3)[1], "a >> e")
+  expect_equal(colnames(tab3)[2], "b >> e")
+  expect_equal(colnames(tab3)[3], "c >> e")
+  expect_equal(colnames(tab3)[4], "d >> e")
 })
 
 tab4_code <- '<table>
@@ -207,7 +209,7 @@ test_that("H: tr/th.td, B: tbody/tr; misspecified rowspan in H", {
   expect_that(colnames(tab6)[4], equals("c"))
 })
 
-
+# stackoverflow example: http://stackoverflow.com/questions/24215584/html-complex-tables
 stack <- '<html>
   <head>
   <title>My First Webpage</title>
@@ -252,7 +254,7 @@ stack <- '<html>
   </html>
 '
 
-test_that("http://stackoverflow.com/questions/24215584/html-complex-tables", {
+test_that("stackoverflow complex table correctly expanded", {
 
   parsed_stack <- XML::htmlParse(stack)
   suppressMessages(stack2 <- htmltab(parsed_stack))

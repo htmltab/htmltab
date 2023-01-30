@@ -2,6 +2,7 @@ context("formula interface for header works")
 
 test_that("multi-dim 1", {
 
+# see https://jsfiddle.net/burgerga/4zv58ph0/5
 tab3_code <- '<table>
 <thead>
 <tr>
@@ -65,20 +66,26 @@ tab3_code <- '<table>
 
 parsedm3 <- doc <- XML::htmlParse(tab3_code)
 
-suppressMessages(tab3m1 <- htmltab(doc = parsedm3, header = "//thead/tr" + "//td[@class = 'md']", body = "//tbody/tr[not(./td[@class = 'md'])]"))
-suppressMessages(tab3m2 <- htmltab(doc = parsedm3, header = 1:2 + "//td[@class = 'md']", body = "//tbody/tr[not(./td[@class = 'md'])]"))
+expect_warning(suppressMessages(tab3m1 <- htmltab(doc = parsedm3, 
+                                                  header = "//thead/tr" + "//td[@class = 'md']", 
+                                                  body = "//tbody/tr[not(./td[@class = 'md'])]")),
+               NULL)
+expect_warning(suppressMessages(tab3m2 <- htmltab(doc = parsedm3, 
+                                                  header = 1:2 + "//td[@class = 'md']", 
+                                                  body = "//tbody/tr[not(./td[@class = 'md'])]")),
+               NULL)
 
-  expect_that(is.na(tab3m1[1,1]), is_true())
-  expect_that(tab3m1[2,1], equals("Header1"))
-  expect_that(tab3m1[3,1], equals("Header1"))
-  expect_that(tab3m1[4,1], equals("Header2"))
-  expect_that(tab3m1[5,1], equals("Header2"))
+  expect_true(is.na(tab3m1[1,1]))
+  expect_equal(tab3m1[2,1], "Header1")
+  expect_equal(tab3m1[3,1], "Header1")
+  expect_equal(tab3m1[4,1], "Header2")
+  expect_equal(tab3m1[5,1], "Header2")
 
-  expect_that(is.na(tab3m2[1,1]), is_true())
-  expect_that(tab3m2[2,1], equals("Header1"))
-  expect_that(tab3m2[3,1], equals("Header1"))
-  expect_that(tab3m2[4,1], equals("Header2"))
-  expect_that(tab3m2[5,1], equals("Header2"))
+  expect_true(is.na(tab3m2[1,1]))
+  expect_equal(tab3m2[2,1], "Header1")
+  expect_equal(tab3m2[3,1], "Header1")
+  expect_equal(tab3m2[4,1], "Header2")
+  expect_equal(tab3m2[5,1], "Header2")
 })
 
 
@@ -194,15 +201,17 @@ tab4_code <- '<table>
 
 parsedm4 <- XML::htmlParse(tab4_code)
 
-suppressMessages(tab4m1 <- htmltab(doc = parsedm4,
+expect_warning(
+  suppressMessages(tab4m1 <- htmltab(doc = parsedm4,
                   header = "//thead/tr" + "//td[@class = 'md1']" + "//td[@class = 'md0']",
-                  body = "//tbody/tr[not(./td[starts-with(@class, 'md')])]"))
+                  body = "//tbody/tr[not(./td[starts-with(@class, 'md')])]")),
+  NULL)
 
-expect_that(is.na(tab4m1[1,1]), is_true())
-expect_that(tab4m1[2,1], equals("MAIN 1"))
-expect_that(tab4m1[6,1], equals("MAIN 2"))
-expect_that(tab4m1[2,2], equals("Header1"))
-expect_that(tab4m1[4,2], equals("Header2"))
+expect_true(is.na(tab4m1[1,1]))
+expect_equal(tab4m1[2,1], "MAIN 1")
+expect_equal(tab4m1[6,1], "MAIN 2")
+expect_equal(tab4m1[2,2], "Header1")
+expect_equal(tab4m1[4,2], "Header2")
 
 })
 

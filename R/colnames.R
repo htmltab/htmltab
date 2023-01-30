@@ -2,7 +2,7 @@
 #'
 #' @param df the generated body
 #' @param header.names the header column names vector
-#' @param colNames either a self-specificed character vector for the column names or a function used on header.names
+#' @param colNames either a self-specified character vector for the column names or a function used on header.names
 #' @param xpath generated header and body xpath
 #' @return a character vector of header column names
 #' @noRd
@@ -32,7 +32,7 @@ make_colnames <- function(df, header.names = NULL, colNames = NULL, header.xpath
     return(df)
   }
 
-  if(class(colNames) == "function") {
+  if(is.function(colNames)) {
     header.names <- colNames(header.names)
     if(ncol(df) != length(header.names)){
       warning("Header dimension doesn't match body dimension", call. = FALSE)
